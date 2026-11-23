@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>El Archivo Sagrado del Nilo · Seguridad Informática</title>
+<meta name="description" content="Portafolio inmersivo de Seguridad Informática (2.º SMR): un recorrido por el Antiguo Egipto con siete cámaras de conocimiento.">
+<meta name="theme-color" content="#090D0E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" onerror="this.remove()">
+<style>
+/*__CSS__*/
+</style>
+<noscript><style>.reveal,.carve{opacity:1!important;transform:none!important;clip-path:none!important}.intro-veil{display:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#mapa">Saltar al mapa de cámaras</a>
+<div class="intro-veil" id="introVeil" aria-hidden="true"><svg viewBox="0 0 40 60"><use href="#g-ankh"/></svg></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="bar" id="bar">
+  <a class="brand" href="#portada" aria-label="Ir a la portada"><svg id="brandIco" aria-hidden="true"></svg><span>Archivo Sagrado</span></a>
+  <div class="tools" id="tools" role="toolbar" aria-label="Sonido y accesibilidad"></div>
+</header>
+
+<nav class="dots" aria-label="Secciones">
+  <a href="#portada"><i></i><b>Portada</b></a>
+  <a href="#inscripcion"><i></i><b>Inscripción</b></a>
+  <a href="#mapa"><i></i><b>Mapa</b></a>
+</nav>
+
+<main id="main">
+  <section id="portada" class="hero" data-sec aria-label="Portada">
+    <div class="hero-pin">
+      <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+      <div id="heroLayers"></div>
+      <canvas id="sand" aria-hidden="true"></canvas>
+      <div class="vig"></div><div class="grain"></div>
+      <div class="hero-ui" id="heroUI">
+        <p class="kicker" id="kicker"></p>
+        <h1 class="title" id="title"></h1>
+        <p class="sub" id="sub"></p>
+        <div class="cta" id="cta"><a class="btn mag" href="#inscripcion">Iniciar la exploración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+      </div>
+      <div class="hero-meta" id="heroMeta"></div>
+      <div class="scrollhint" id="scrollHint" aria-hidden="true">DESCIENDE<i></i></div>
+      <div id="heroFade" style="position:absolute;inset:0;background:#090D0E;opacity:0;pointer-events:none;z-index:7"></div>
+    </div>
+  </section>
+
+  <section id="inscripcion" class="insc" data-sec aria-labelledby="inscT">
+    <div class="insc-frieze" id="inscFrieze" aria-hidden="true"></div>
+    <svg class="insc-eye" viewBox="0 0 40 60" aria-hidden="true"><use href="#g-eye"/></svg><svg class="insc-eye2" viewBox="0 0 40 60" aria-hidden="true"><use href="#g-ankh"/></svg>
+    <div class="insc-head reveal">
+      <div class="eyebrow">Inscripción del templo</div>
+      <h2 class="h2" id="inscT">Antes de cruzar <em>el umbral</em></h2>
+      <p class="lead">Lo que los muros del templo cuentan sobre este archivo.</p>
+    </div>
+    <div class="stelae" id="stelae"></div>
+  </section>
+
+  <section id="mapa" class="map-sec" data-sec aria-labelledby="mapT">
+    <div class="map-head">
+      <div class="reveal"><div class="eyebrow">El recorrido de aventuras</div><h2 class="h2" id="mapT">Siete pirámides,<br><em>siete cámaras</em></h2></div>
+      <p class="reveal">Cada pirámide guarda una parte de la historia. Acércate, deja que se ilumine y entra.</p>
+    </div>
+    <div class="map-stage" id="mapStage">
+      <div class="map-scroll" tabindex="-1">
+        <div class="map-rel" id="mapRel">
+          <div class="map-tilt" id="mapTilt"><div id="mapHost"></div></div>
+          <div class="maptip" id="maptip" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+    <p class="maphint" aria-hidden="true">← desliza el mapa →</p>
+    <nav class="legend" id="legend" aria-label="Índice de cámaras"></nav>
+  </section>
+</main>
+
+<footer>
+  <a class="brand" href="#portada"><svg viewBox="0 0 40 60" aria-hidden="true" style="width:20px;height:30px"><use href="#g-ankh"/></svg><span style="display:inline">El Archivo Sagrado del Nilo</span></a>
+  <p>Seguridad Informática · 2.º SMR · Portafolio académico</p>
+</footer>
+
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<div class="cam" id="cam" role="dialog" aria-modal="true" aria-labelledby="camT">
+  <div class="cam-bar">
+    <button class="btn ghost sm" id="camBack" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>Volver al mapa</span></button>
+    <nav class="cam-nav" id="camNav" aria-label="Cámaras"></nav>
+    <div id="camTools"></div>
+  </div>
+  <div class="cam-hero"><div class="sc" id="camScene"></div><div class="cam-title" id="camTitle"></div></div>
+  <div class="cam-body" id="camBody"></div>
+  <div class="cam-foot">
+    <button class="btn ghost sm" id="camPrev" type="button">← <span></span></button>
+    <button class="btn ghost sm" id="camMap" type="button">Mapa de cámaras</button>
+    <button class="btn sm" id="camNext" type="button"><span></span> →</button>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visor de evidencias">
+  <div class="lb-top"><span id="lbCount"></span><span style="display:flex;gap:6px"><button class="ibtn" id="lbZoom" type="button" aria-label="Alternar zoom" title="Zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></button><button class="ibtn" id="lbClose" type="button" aria-label="Cerrar visor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt="" draggable="false">
+    <button class="ibtn lb-nav p" id="lbPrev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="ibtn lb-nav n" id="lbNext" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
+<aside class="guide" id="guide" aria-label="Guía virtual SADCHURUZEN">
+  <div class="g-hello" id="gHello" role="status"></div>
+  <button class="g-launch" id="gLaunch" type="button" aria-label="Hablar con SADCHURUZEN, guía virtual" aria-expanded="false" aria-controls="chat">
+    <span class="g-ring"></span><span class="g-ph"><img id="gImg" alt="Fotografía original de SADCHURUZEN"></span><span class="g-amu" id="gAmu"></span><span class="g-dot" title="Disponible"></span>
+  </button>
+</aside>
+
+<section class="chat" id="chat" role="dialog" aria-label="Conversación con SADCHURUZEN">
+  <header class="c-head">
+    <span class="c-av"><img id="cAv" alt=""></span>
+    <div class="c-id"><b id="cName"></b><span><i></i>Disponible · base de conocimiento local</span></div>
+    <button class="ibtn" id="cMin" type="button" aria-label="Minimizar chat"></button>
+    <button class="ibtn" id="cClose" type="button" aria-label="Cerrar chat"></button>
+  </header>
+  <div class="c-body" id="cBody" role="log" aria-live="polite"></div>
+  <div class="c-quick" id="cQuick" aria-label="Preguntas rápidas"></div>
+  <form class="c-form" id="cForm" autocomplete="off">
+    <label class="sr" for="cIn">Escribe tu pregunta</label>
+    <input id="cIn" type="text" placeholder="Pregunta a SADCHURUZEN…" maxlength="300" enterkeyhint="send">
+    <button class="c-send" id="cSend" type="submit" aria-label="Enviar"></button>
+  </form>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="cur" id="cur" aria-hidden="true"></div><div class="cur-d" id="curd" aria-hidden="true"></div>
+
+<script>window.ASSETS=/*__ASSETS__*/;</script>
+<script>
+/*__DATA__*/
+</script>
+<script>
+/*__ART__*/
+</script>
+<script>
+/*__APP__*/
+</script>
+</body>
+</html>

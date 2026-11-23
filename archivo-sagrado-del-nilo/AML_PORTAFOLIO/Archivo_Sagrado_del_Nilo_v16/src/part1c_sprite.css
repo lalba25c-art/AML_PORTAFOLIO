@@ -1,0 +1,72 @@
+/* ---------- Sprite de Sadchuruzen (cuerpo entero) ---------- */
+.dogspr{display:block;width:var(--dw,170px);aspect-ratio:240/160;position:relative;pointer-events:none}
+.dog-svg{width:100%;height:100%;overflow:visible}
+.dogspr[data-dir="l"] .dog-svg{transform:scaleX(-1)}
+.dogspr .tongue,.dogspr .hrt,.dogspr .zz{opacity:0}
+.dogspr .leg,.dogspr .shin,.dogspr .body-g,.dogspr .head,.dogspr .tail,.dogspr .ear,.dogspr .dog-all,.dogspr .eye{transition:transform .45s var(--ease)}
+.dogspr .eye{animation:dogBlink 5s infinite}
+@keyframes dogBlink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.dogspr .tail{animation:tailSlow 2.6s ease-in-out infinite}
+@keyframes tailSlow{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+@keyframes tailFast{0%,100%{transform:rotate(-26deg)}50%{transform:rotate(26deg)}}
+@keyframes swA{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(28deg)}}
+@keyframes swB{0%,100%{transform:rotate(28deg)}50%{transform:rotate(-28deg)}}
+@keyframes knee{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(46deg)}75%{transform:rotate(8deg)}}
+@keyframes bobW{0%,50%,100%{transform:translateY(0)}25%,75%{transform:translateY(-3.5px)}}
+@keyframes headW{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-22px)}}
+@keyframes breathe2{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.04)}}
+@keyframes zzf{0%{opacity:0;transform:translate(0,8px)}40%{opacity:1}100%{opacity:0;transform:translate(8px,-18px)}}
+@keyframes earF{0%,100%{transform:rotate(0)}50%{transform:rotate(-16deg)}}
+/* caminar / correr / subir */
+.dogspr[data-pose=walk] .leg.fn,.dogspr[data-pose=walk] .leg.bf,.dogspr[data-pose=climb] .leg.fn,.dogspr[data-pose=climb] .leg.bf,.dogspr[data-pose=sniff] .leg.fn,.dogspr[data-pose=sniff] .leg.bf{animation:swA .62s ease-in-out infinite}
+.dogspr[data-pose=walk] .leg.ff,.dogspr[data-pose=walk] .leg.bn,.dogspr[data-pose=climb] .leg.ff,.dogspr[data-pose=climb] .leg.bn,.dogspr[data-pose=sniff] .leg.ff,.dogspr[data-pose=sniff] .leg.bn{animation:swB .62s ease-in-out infinite}
+.dogspr[data-pose=walk] .shin,.dogspr[data-pose=climb] .shin,.dogspr[data-pose=sniff] .shin{animation:knee .31s linear infinite}
+.dogspr[data-pose=walk] .dog-all,.dogspr[data-pose=climb] .dog-all{animation:bobW .62s ease-in-out infinite}
+.dogspr[data-pose=walk] .head{animation:headW .62s ease-in-out infinite}
+.dogspr[data-pose=walk] .tail,.dogspr[data-pose=run] .tail,.dogspr[data-pose=climb] .tail{animation:tailSlow 1s ease-in-out infinite}
+.dogspr[data-pose=run] .leg.fn,.dogspr[data-pose=run] .leg.bf{animation:swA .34s ease-in-out infinite}
+.dogspr[data-pose=run] .leg.ff,.dogspr[data-pose=run] .leg.bn{animation:swB .34s ease-in-out infinite}
+.dogspr[data-pose=run] .shin{animation:knee .17s linear infinite}
+.dogspr[data-pose=run] .dog-all{animation:bobW .34s ease-in-out infinite}
+.dogspr[data-pose=run] .body-g{transform:rotate(-4deg)}.dogspr[data-pose=run] .head{transform:rotate(-6deg)}
+.dogspr[data-pose=run] .ear{animation:earF .34s ease-in-out infinite}
+.dogspr[data-pose=climb] .body-g{transform:rotate(-14deg)}.dogspr[data-pose=climb] .head{transform:rotate(-12deg)}
+.dogspr[data-pose=climb] .leg.fn,.dogspr[data-pose=climb] .leg.bf{animation-duration:.5s}.dogspr[data-pose=climb] .leg.ff,.dogspr[data-pose=climb] .leg.bn{animation-duration:.5s}
+/* olfatear */
+.dogspr[data-pose=sniff] .head{transform:rotate(30deg) translate(4px,12px);animation:none}
+.dogspr[data-pose=sniff] .leg{animation-duration:1.3s}.dogspr[data-pose=sniff] .shin{animation-duration:.65s}
+.dogspr[data-pose=sniff] .dog-all{transform:translateX(0)}
+/* sentarse */
+.dogspr[data-pose=sit] .dog-all,.dogspr[data-pose=look] .dog-all,.dogspr[data-pose=happy] .dog-all{transform:translateY(0)}
+.dogspr[data-pose=sit] .body-g,.dogspr[data-pose=look] .body-g{transform:rotate(-24deg) translateY(6px)}
+.dogspr[data-pose=sit] .leg.bn,.dogspr[data-pose=sit] .leg.bf,.dogspr[data-pose=look] .leg.bn,.dogspr[data-pose=look] .leg.bf{transform:rotate(82deg) translate(-4px,2px)}
+.dogspr[data-pose=sit] .leg.bn .shin,.dogspr[data-pose=sit] .leg.bf .shin,.dogspr[data-pose=look] .leg.bn .shin,.dogspr[data-pose=look] .leg.bf .shin{transform:rotate(-150deg)}
+.dogspr[data-pose=sit] .head,.dogspr[data-pose=look] .head{transform:rotate(-12deg) translate(-2px,-8px)}
+.dogspr[data-pose=sit] .dog-all,.dogspr[data-pose=look] .dog-all{transform:translateY(4px)}
+.dogspr[data-pose=look] .head{animation:headLook 3s ease-in-out infinite}
+@keyframes headLook{0%,100%{transform:rotate(-12deg) translate(-2px,-8px)}35%,65%{transform:rotate(-2deg) translate(0,-4px)}}
+.dogspr[data-pose=sit] .ear1,.dogspr[data-pose=look] .ear1{animation:earF 4s ease-in-out infinite}
+/* tumbarse y dormir */
+.dogspr[data-pose=lie] .dog-all,.dogspr[data-pose=sleep] .dog-all{transform:translateY(20px)}
+.dogspr[data-pose=lie] .body-g,.dogspr[data-pose=sleep] .body-g{transform:rotate(-2deg)}
+.dogspr[data-pose=lie] .leg.fn,.dogspr[data-pose=lie] .leg.ff,.dogspr[data-pose=sleep] .leg.fn,.dogspr[data-pose=sleep] .leg.ff{transform:rotate(-84deg)}
+.dogspr[data-pose=lie] .leg.bn,.dogspr[data-pose=lie] .leg.bf,.dogspr[data-pose=sleep] .leg.bn,.dogspr[data-pose=sleep] .leg.bf{transform:rotate(80deg)}
+.dogspr[data-pose=lie] .leg .shin,.dogspr[data-pose=sleep] .leg .shin{transform:rotate(-100deg)}
+.dogspr[data-pose=lie] .head{transform:rotate(6deg) translate(2px,2px)}
+.dogspr[data-pose=sleep] .head{transform:rotate(24deg) translate(4px,10px)}
+.dogspr[data-pose=sleep] .eye{animation:none;transform:scaleY(.12)}
+.dogspr[data-pose=sleep] .body-g{animation:breathe2 3.6s ease-in-out infinite}
+.dogspr[data-pose=sleep] .zz{animation:zzf 2.8s ease-in-out infinite}
+.dogspr[data-pose=sleep] .tail,.dogspr[data-pose=lie] .tail{animation:tailSlow 5s ease-in-out infinite}
+/* alegría */
+.dogspr[data-pose=happy] .dog-all{animation:hop .55s ease-in-out infinite}
+.dogspr[data-pose=happy] .tail{animation:tailFast .22s ease-in-out infinite}
+.dogspr[data-pose=happy] .tongue,.dogspr[data-pose=happy] .hrt{opacity:1}
+.dogspr[data-pose=happy] .leg.fn,.dogspr[data-pose=happy] .leg.ff{transform:rotate(-30deg)}
+.dogspr[data-pose=happy] .ear{animation:earF .3s ease-in-out infinite}
+/* compañera en el mundo */
+#exDog{--dw:170px;position:absolute;left:clamp(10px,6vw,90px);bottom:74px;z-index:9;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+@media (max-width:700px){#exDog{--dw:120px;bottom:70px;left:4px}}
+.dogspr[data-pose]{transition:opacity .3s}
+@media (prefers-reduced-motion:reduce){.dogspr *{animation:none!important}}
